@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareerGPT | Demo</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="demo-page">
+  <input type="hidden" id="build-version" value="v0.1.2 – July 26, 2025, 8:28 AM PT">
+
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">SAAD AZIZ</div>
+        <ul class="nav-links">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="demo.html" class="active">Demo</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="demo-section fade-in">
+      <div class="container">
+        <h1>CareerGPT</h1>
+        <p class="slogan">🧠 It judges your fate with neural net indifference.</p>
+
+        <form id="career-form" onsubmit="return false;">
+          <label for="job-title">Enter your job title or role:</label>
+          <input type="text" id="job-title" name="job" class="form-control" required
+            placeholder="e.g., Software Engineer" />
+          <br /><br />
+          <button type="submit" class="btn">Analyze My Career</button>
+        </form>
+
+        <div id="responseBox" style="margin-top: 2rem;"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <ul class="footer-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="demo.html" class="active">Demo</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <p class="copyright">&copy; 2025 Saad Aziz. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const demoFade = document.querySelector(".demo-section.fade-in");
+      if (demoFade) {
+        setTimeout(() => demoFade.classList.add("visible"), 100);
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      window.dispatchEvent(new Event('scroll'));
+
+      const form = document.getElementById("career-form");
+      const input = document.getElementById("job-title");
+      const responseBox = document.getElementById("responseBox");
+
+      if (form && input && responseBox) {
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          responseBox.style.opacity = "1";
+          responseBox.innerHTML = "🧠 Thinking...";
+
+          try {
+            const response = await fetch("https://aurorahours.com/chatgpt_v1/demo", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ title: input.value }),
+            });
+
+            const data = await response.json();
+            const responseBox = document.getElementById("responseBox");
+
+            // Trigger fade-in after DOM update
+            //setTimeout(() => responseBox.classList.add("visible"), 50);
+
+            if (data.response && data.response.trim().startsWith("<")) {
+              responseBox.innerHTML = `<div class="gpt-response">${data.response}</div>`;
+            } else {
+              responseBox.textContent = "⚠️ The response was not in valid HTML format.";
+            }
+
+            // Use requestAnimationFrame to ensure DOM is updated
+            requestAnimationFrame(() => {
+              responseBox.style.opacity = "1";           // or use a CSS class like .visible
+              responseBox.style.transform = "translateY(0)";
+            });
+
+          } catch (error) {
+            const responseBox = document.getElementById("responseBox");
+            responseBox.textContent = "🚨 Error: " + error.message;
+            console.error("Fetch error:", error);
+          }
+        });
+      }
+    });
+
+    // === Build Version Display for dev or local (file://) ===
+    document.addEventListener('DOMContentLoaded', () => {
+      const version = document.getElementById('build-version')?.value;
+
+      const isDev = window.location.hostname.startsWith("dev.");
+      const isLocal = window.location.protocol === "file:"; // detect file://
+
+      if (version && (isDev || isLocal)) {
+        const footer = document.createElement("div");
+        footer.style.cssText = "font-size:12px; color:gray; text-align:center; margin-top:10px;";
+        footer.textContent = `Build: ${version}`;
+        document.body.appendChild(footer);
+      }
+    });
+  </script>
+
+</body>
+
+</html>
