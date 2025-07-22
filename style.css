@@ -903,7 +903,6 @@ footer {
     border-top: 1px solid #ccc;
 }
 
-<<<<<<< HEAD
 #responseBox ul.reasons {
     padding-left: 1.5rem; /* adds bullet indent */
     margin-left: 0.5rem;  /* slight extra spacing for alignment */
@@ -916,5 +915,8 @@ footer {
     line-height: 1.6;
     text-indent: -0.4rem; /* optional: makes bullets align visually */
 }
-=======
->>>>>>> fd33114 (clean demo)
+
+body.resume-page {
+    background: #f4f7f6 !important;
+    color: #333 !important;
+}
