@@ -97,14 +97,15 @@
 
             // Use requestAnimationFrame to ensure DOM is updated
             requestAnimationFrame(() => {
-                responseBox.style.opacity = "1";           // or use a CSS class like .visible
-                responseBox.style.transform = "translateY(0)";
+              responseBox.style.opacity = "1";           // or use a CSS class like .visible
+              responseBox.style.transform = "translateY(0)";
             });
 
           } catch (error) {
             const responseBox = document.getElementById("responseBox");
             responseBox.textContent = "🚨 Error: " + error.message;
-            console.error("Fetch error:", error);          }
+            console.error("Fetch error:", error);
+          }
         });
       }
     });

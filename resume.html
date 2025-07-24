@@ -58,7 +58,6 @@
 
         <section id="experience">
             <h2>Experience</h2>
-
             <div class="experience-item">
                 <h3>Senior Software Developer</h3>
                 <p class="role">Johnstone Supply</p>
@@ -128,14 +127,14 @@
                 </ul>
             </div>
 
-
             <div class="experience-item">
                 <h3>Engineering Manager – Global Payments</h3>
                 <p class="role">Nike, Inc.</p>
                 <span class="dates">2017 – 2022</span>
                 <ul>
                     <li>Led the architecture and development of Nike’s global financial transaction API, powering over
-                        <strong>$50B in annual volume</strong>.</li>
+                        <strong>$50B in annual volume</strong>.
+                    </li>
                     <li>Scaled systems to handle <strong>100M+ transactions annually</strong> across <strong>40+
                             countries</strong> with <strong>99.999% uptime</strong>.</li>
                     <li>Integrated ERP and real-time data pipelines to enable seamless, auditable financial flows across
@@ -157,7 +156,8 @@
                     </li>
                     <li>Drove adoption of <strong>Agile methodologies</strong> and implemented <strong>CI/CD
                             pipelines</strong> using Jenkins and GitLab, boosting engineering productivity by
-                        <strong>30%</strong>.</li>
+                        <strong>30%</strong>.
+                    </li>
                     <li>Designed and deployed scalable <strong>RESTful APIs</strong> and <strong>microservices</strong>
                         to facilitate seamless third-party integrations in the healthcare staffing space.</li>
                     <li>Led DevOps transformation efforts—integrated infrastructure-as-code practices and automated
@@ -166,7 +166,6 @@
                         cross-functional collaboration, and process optimization.</li>
                 </ul>
             </div>
-
 
             <div class="experience-item">
                 <h3>Senior Software Developer and Team Lead</h3>
@@ -192,7 +191,8 @@
                     <li>Engaged as a contract consultant to advise the web development group on modern technology stack
                         adoption and architecture decisions.</li>
                     <li>Developed a robust <strong>Single Page Application (SPA)</strong> using
-                        <strong>Ember.js</strong>, enhancing user experience and front-end performance.</li>
+                        <strong>Ember.js</strong>, enhancing user experience and front-end performance.
+                    </li>
                     <li>Created optimized <strong>data extracts</strong> and reports using <strong>MS SQL
                             Server</strong> to support operational and reporting needs.</li>
                     <li>Collaborated in an <strong>Agile software development</strong> environment, contributing to
@@ -244,7 +244,8 @@
                 <span class="dates">Jun 2008 – Aug 2009</span>
                 <ul>
                     <li>Delivered customized <strong>ASP.NET web applications</strong> for law firms, focusing on
-                        <strong>document management</strong> and <strong>case tracking</strong> solutions.</li>
+                        <strong>document management</strong> and <strong>case tracking</strong> solutions.
+                    </li>
                     <li>Contributed as an <strong>individual developer</strong> while collaborating closely with peers
                         to troubleshoot and resolve technical blockers.</li>
                     <li>Completed client projects <strong>on time and within budget</strong>, maintaining high standards
@@ -262,24 +263,19 @@
                     <li>Joined as the <strong>first in-house engineer</strong> at an early-stage startup, inheriting and
                         stabilizing an acquired <strong>ASP.NET codebase</strong>.</li>
                     <li>Acted as the <strong>primary technical lead</strong>, coordinating development with an
-                        <strong>offshore engineering team</strong>.</li>
+                        <strong>offshore engineering team</strong>.
+                    </li>
                     <li>Collaborated with <strong>Operations and Product teams</strong> to launch and maintain the core
-                        <strong>.NET-based SaaS platform</strong>.</li>
+                        <strong>.NET-based SaaS platform</strong>.
+                    </li>
                     <li>Implemented <strong>Agile practices</strong> to support iterative releases and continuous
                         stakeholder feedback.</li>
                 </ul>
             </div>
-
-
-
         </section>
 
-        <!-- Education Section: Your academic qualifications -->
         <section id="education">
             <h2>Education</h2>
-
-
-            <!-- Example of another education entry -->
             <div class="education-item">
                 <h3>Bachelor of Science in Computer Science</h3>
                 <p class="degree">Portland State University</p>
@@ -287,7 +283,6 @@
             </div>
         </section>
 
-        <!-- Skills Section: Placeholder Content -->
         <section id="skills">
             <h2>Skills</h2>
 
@@ -361,7 +356,6 @@
             </div>
         </section>
 
-        <!-- Portfolio Section: Placeholder Content -->
         <section id="portfolio">
             <h2>Portfolio/Projects</h2>
             <div class="portfolio-grid">
@@ -400,17 +394,6 @@
     </div>
 
     <script>
-        /* 
-        *******************************************************************
-        JAVASCRIPT FOR INTERACTIVITY:
-        
-        This section handles interactive elements like smooth scrolling and
-        skill bar animations. You generally do NOT need to change anything here.
-        
-        *******************************************************************
-        */
-
-        // Smooth Scrolling for internal links (e.g., if you add a navigation menu)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -421,27 +404,22 @@
             });
         });
 
-        // Skill Bar Animation: Makes the skill bars fill up when the page loads
         document.addEventListener('DOMContentLoaded', () => {
             const skillBars = document.querySelectorAll('.progress-bar-fill');
 
             const animateSkillBars = () => {
                 skillBars.forEach(bar => {
-                    const progress = bar.getAttribute('data-progress'); // Gets the percentage from the HTML
-                    bar.style.width = progress + '%'; // Sets the width to animate the bar
+                    const progress = bar.getAttribute('data-progress'); 
+                    bar.style.width = progress + '%'; 
                 });
             };
 
-            // Trigger animation when the page loads
             animateSkillBars();
 
-            // Optional: Trigger animation when section comes into view (using Intersection Observer)
-            // This is more advanced and might be overkill for a single-page resume,
-            // but demonstrates the concept.
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.5 // Trigger when 50% of the element is visible
+                threshold: 0.5 
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
@@ -453,7 +431,7 @@
                                 const progress = bar.getAttribute('data-progress');
                                 bar.style.width = progress + '%';
                             });
-                            observer.unobserve(entry.target); // Stop observing once animated
+                            observer.unobserve(entry.target); 
                         }
                     }
                 });
