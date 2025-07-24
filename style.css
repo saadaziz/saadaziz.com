@@ -1236,3 +1236,21 @@ body.resume-page {  body {
             }
         }
     }
+
+#formStatus {
+  margin-top: 1rem;
+  text-align: center;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#formStatus.sending {
+  color: #aaa; /* muted gray while sending */
+}
+
+#formStatus.success {
+  color: #4cafef; /* accent blue for success */
+}
+
+#formStatus.error {
+  color: #ff6b6b; /* soft red for errors */
+}
