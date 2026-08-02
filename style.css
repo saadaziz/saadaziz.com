@@ -1484,3 +1484,57 @@ body.resume-page {
         gap: 0.5rem;
     }
 }
+
+
+/* === Contact form reliability and accessibility === */
+.contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.contact-info .contact-value {
+    color: var(--white-text);
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+.contact-info a.contact-value:hover,
+.contact-info a.contact-value:focus-visible {
+    color: var(--accent);
+    opacity: 1;
+}
+
+.contact-honeypot {
+    position: absolute !important;
+    left: -10000px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
+
+.contact-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+    transform: none;
+}
+
+.contact-fallback {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.82;
+}
+
+.contact-fallback a,
+#formStatus a {
+    color: #a78bfa;
+    font-weight: 600;
+}
+
+.contact-fallback a:hover,
+.contact-fallback a:focus-visible,
+#formStatus a:hover,
+#formStatus a:focus-visible {
+    color: var(--white-text);
+}
