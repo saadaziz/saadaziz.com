@@ -1341,3 +1341,146 @@ body.resume-page {
     cursor: not-allowed;         /* shows "no" cursor */
     text-decoration: none;
 }
+
+/* === CareerGPT authenticated demo === */
+.demo-response-box {
+    margin-top: 2rem;
+    min-height: 1.6rem;
+}
+
+.demo-access-bar {
+    align-items: center;
+    background: rgba(26, 26, 46, 0.55);
+    border: 1px solid rgba(167, 139, 250, 0.35);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 1.5rem;
+    padding: 0.7rem 0.9rem;
+}
+
+.demo-access-bar[hidden] {
+    display: none;
+}
+
+.access-dot {
+    background: #72e6a5;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(114, 230, 165, 0.12);
+    display: inline-block;
+    height: 0.55rem;
+    margin-right: 0.55rem;
+    width: 0.55rem;
+}
+
+.demo-sign-out {
+    background: transparent;
+    border: 0;
+    color: #c9bdfb;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.9rem;
+    padding: 0.25rem 0.35rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.demo-login-open {
+    overflow: hidden;
+}
+
+.demo-login-overlay {
+    align-items: center;
+    background: rgba(9, 8, 20, 0.82);
+    backdrop-filter: blur(8px);
+    display: flex;
+    inset: 0;
+    justify-content: center;
+    padding: 1.25rem;
+    position: fixed;
+    z-index: 1000;
+}
+
+.demo-login-overlay[hidden] {
+    display: none;
+}
+
+.demo-login-card {
+    background: linear-gradient(145deg, rgba(48, 39, 66, 0.98), rgba(29, 25, 45, 0.98));
+    border: 1px solid rgba(167, 139, 250, 0.35);
+    border-radius: 18px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.48);
+    max-width: 440px;
+    padding: 2rem;
+    width: 100%;
+}
+
+.demo-login-icon {
+    font-size: 2rem;
+    margin-bottom: 0.65rem;
+}
+
+.demo-login-card h2 {
+    font-size: 1.65rem;
+    margin-bottom: 0.6rem;
+}
+
+.demo-login-copy {
+    color: rgba(240, 240, 240, 0.76);
+    margin-bottom: 1.4rem;
+}
+
+.demo-login-field {
+    margin-bottom: 1rem;
+}
+
+.demo-login-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.demo-login-field input {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
+    color: var(--white-text);
+    font: inherit;
+    padding: 0.8rem;
+    width: 100%;
+}
+
+.demo-login-field input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(123, 104, 238, 0.18);
+    outline: none;
+}
+
+.demo-login-message {
+    color: #ffb8b8;
+    min-height: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.demo-login-button {
+    width: 100%;
+}
+
+.demo-login-button:disabled,
+#career-form .btn:disabled {
+    cursor: wait;
+    opacity: 0.65;
+    transform: none;
+}
+
+@media (max-width: 520px) {
+    .demo-login-card {
+        padding: 1.4rem;
+    }
+
+    .demo-access-bar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
